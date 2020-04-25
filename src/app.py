@@ -1,37 +1,22 @@
-from src.game_manager import *
+from src import game_manager as GM
+from src.DisplayManager import DisplayManager
+import tkinter as tk
 
-NUMBER_OF_ROUNDS = 20
 
 if __name__ == '__main__':
     """
     We start this game with 3 players, 2 stores, and 3 viruses
     """
-    game = create_game([], [], NUMBER_OF_ROUNDS)
 
-    # create players
-    p1 = create_player("p1")
-    p2 = create_player("p2")
-    p3 = create_player("p3")
-    players = [p1, p2]
+    # main root
+    root = tk.Tk(screenName=None, baseName=None, className='Tk', useTk=1)
+    root.title('Game')
 
-    # create viruses
-    covid_19 = create_covid_19_virus()
-    influenza = create_influenza_virus()
-    mrsa = create_mrsa_virus()
+    dm = DisplayManager(root)
+    dm.create_tool_bar(root)
+    dm.create_main_display(root)
 
-    # create stores
-    walmart = create_store_walmart(5)
-    tim_hortons = create_tim_hortons(1)
-    stores = [walmart, tim_hortons]
+    # start application
+    root.mainloop()
 
-    # add viruses to stores
-    walmart.add_virus(covid_19)
-    walmart.add_virus(influenza)
-    tim_hortons.add_virus(mrsa)
-
-    # add components to game
-    game.add_players(players)
-    game.add_stores(stores)
-
-    # start game
-    game.run()
+    exit(0)
