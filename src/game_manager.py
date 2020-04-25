@@ -3,7 +3,7 @@ from src.location.Location import Location
 from src.player.Player import Player
 from src.virus.Virus import Virus
 
-
+NUMBER_OF_ROUNDS = 20
 PLAYER_HEALTH = 100  # starting hp
 PLAYER_MAX_FOOD = 8  # most food a player can hold
 PLAYER_FOOD = 5  # starting food
@@ -45,9 +45,9 @@ def create_influenza_virus():
 
 def create_mrsa_virus():
     return Virus(
-        name="Methicillin-resistant S. Aureus",
+        name="MERS",  # Methicillin-resistant S. Aureus
         total_length=8,
-        infection_chance=0.2,
+        infection_chance=0.6,
         severe_chance=0.4,
         damage=40,
         decay_rate=0.5,
@@ -59,7 +59,7 @@ def create_covid_19_virus():
         name="covid-19",
         total_length=7,
         infection_chance=0.4,  # high for testing, 0.2
-        severe_chance=0.3,  # high for testing, 0.2
+        severe_chance=0.5,  # high for testing, 0.2
         damage=100,  # high for testing
         decay_rate=0.6,
     )
@@ -86,3 +86,33 @@ def create_game(stores, players, number_of_rounds=10):
         rounds=number_of_rounds
     )
 
+
+def create_test_game():
+    game = create_game([], [], NUMBER_OF_ROUNDS)
+
+    # create players
+    p1 = create_player("p1")
+    p2 = create_player("p2")
+    p3 = create_player("p3")
+    players = [p1, p2, p3]
+
+    # create viruses
+    covid_19 = create_covid_19_virus()
+    influenza = create_influenza_virus()
+    mrsa = create_mrsa_virus()
+
+    # create stores
+    walmart = create_store_walmart(5)
+    tim_hortons = create_tim_hortons(1)
+    stores = [walmart, tim_hortons]
+
+    # add viruses to stores
+    walmart.add_virus(covid_19)
+    walmart.add_virus(influenza)
+    tim_hortons.add_virus(mrsa)
+
+    # add components to game
+    game.add_players(players)
+    game.add_stores(stores)
+
+    return game
