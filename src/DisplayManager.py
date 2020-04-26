@@ -4,8 +4,8 @@ import threading
 from functools import partial
 
 from termcolor import colored
-import src.game_manager as GM
-from src.Game import GameState
+import game_manager as GM
+from Game import GameState
 
 MAIN_CANVAS_WIDTH = 800
 MAIN_CANVAS_HEIGHT = 400

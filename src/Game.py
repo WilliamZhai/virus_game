@@ -4,8 +4,8 @@ from enum import Enum
 
 from termcolor import colored
 
-from src.utilities import Chance
-from src.virus.Virus import Virus
+from utilities import Chance
+from virus.Virus import Virus
 
 
 class GameState(Enum):

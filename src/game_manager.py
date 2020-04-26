@@ -1,7 +1,7 @@
-from src.Game import Game
-from src.location.Location import Location
-from src.player.Player import Player
-from src.virus.Virus import Virus
+from Game import Game
+from location.Location import Location
+from player.Player import Player
+from virus.Virus import Virus
 
 NUMBER_OF_ROUNDS = 20
 PLAYER_HEALTH = 100  # starting hp

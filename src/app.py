@@ -1,5 +1,4 @@
-from src import game_manager as GM
-from src.DisplayManager import DisplayManager
+from DisplayManager import DisplayManager
 import tkinter as tk
 
 

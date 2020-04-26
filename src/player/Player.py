@@ -1,4 +1,4 @@
-from src.utilities import Chance
+from utilities import Chance
 
 
 class Player:
