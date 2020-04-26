@@ -16,3 +16,16 @@ locations they go to.
 rate will decrease and disappear over time. 
 * Players have hunger level that decreases over time, they can go to utility locations
 to replenish their hunger level.
+
+### Installation Requirements
+create virtual environment:
+- [virtual environment help](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/)
+
+
+### Instructions
+from the virus_game fold run:
+- pip install requirements.txt
+- python src/app.py
+
+Now you can play the game, there should be a gui pop up with information of the game.
+As well you can check the stdout for information of the game state.
